@@ -109,45 +109,20 @@ ui <- fluidPage(
   
   hr(),
   #pasamos a la segunda seccion de la prueba de dominancia
-  uiOutput("segunda_ronda")
-  
   
 )
 
 
 # Define server logic 
 server <- function(input, output, session) {
-  
   observe({
-    
-    seleccionados <- names(which(unlist(lapply(checkbox_ids, function(id) input[[id]])) == TRUE))
-    
-    if (length(seleccionados) == 8) {
-      
-      output$segunda_ronda <- renderUI({
-        tagList(
-          fluidRow(
-            h2("Segunda parte")
-          ),
-          
-          fluidRow(
-            lapply(seleccionados, function(id) {
-              column(
-                width = 4,
-                checkboxInput(
-                  inputId = paste0("r2_", id),
-                  label   = id
-                )
-              )
-            })
-          )
-        )
-      })
-      
-    } else {
-      output$segunda_ronda <- renderUI(NULL)
-    }
+    seleccionado <- names(which(unlist(lapply(checkbox_ids, function(id) input[[id]])) == TRUE))
+    updateCheckboxGroupInput(session, seleccionado,
+                             label = NULL, 
+                             choices = seleccionado,
+                             selected = NULL)
   })
+  
 }
 
 # Run the application 
