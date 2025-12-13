@@ -102,7 +102,8 @@ ui <- fluidPage(
         #verbatimTextOutput("resumen_final"),
         br(),
         actionButton("back3", "Volver a Etapa 3"),
-        actionButton("reset", "Comenzar de nuevo")
+        actionButton("reset", "Comenzar de nuevo"),
+        downloadButton("descargar", "Descargar resultados")
       )
     ),
     
@@ -113,7 +114,7 @@ ui <- fluidPage(
       h3("Selecciones Actuales"),
       verbatimTextOutput("summary"),
       h4("Gráfico de resultados:"),
-      plotOutput("grafica_final"), 
+      plotOutput("grafica_final",height = "600px",width  = "100%") 
       #h4("IDs Internos:"),
       #verbatimTextOutput("valores_internos")
     )
@@ -383,7 +384,7 @@ server <- function(input, output, session) {
     resul_zonas$puntaje<-as.numeric(resul_zonas$puntaje)
     
     data2 <- as.data.frame(t(resul_zonas$puntaje))
-    colnames(data2) <- c("Superior \nizquierdo","superior \nderecho",
+    colnames(data2) <- c("Superior \nizquierdo","Superior \nderecho",
                          "Inferior \nizquierdo","Inferior \nderecho")
     # To use the fmsb package, I have to add 2 lines to the dataframe: the max and min of each topic to show on the plot!
     data2 <- rbind(rep(8,1) , rep(0,8) , data2)
@@ -398,6 +399,44 @@ server <- function(input, output, session) {
     
     
   })
+  
+  #la descarga de los resultados
+  output$stage <- renderText({
+    stage()
+  })
+  
+  outputOptions(output, "stage", suspendWhenHidden = FALSE)
+  
+  output$descargar <- downloadHandler(
+    
+    filename = function() {
+      paste0(gsub(input$nombre),"_resultado.csv")
+    },
+    contentType = "text/csv",
+    content = function(file) {
+      
+      reporte <- data.frame(
+        Nombre_aspirante = input$nombre,
+        Edad = input$edad,
+        Carrera_deseada = input$carrera,
+        F_nacimiento = input$f_nacimiento,
+        Escuela = input$escuela,
+        Grado = input$grado,
+        Correo = input$correo,
+        Telefono = input$telefono,
+        Nombre_tutor = input$tutor,
+        Correo_tutor = input$correo_tutor,
+        Telefono_tutor = input$telefono_tutor,
+        SupIzq = resul_zonas$puntaje[1],
+        SupDer = resul_zonas$puntaje[2],
+        InfIzq = resul_zonas$puntaje[3],
+        InfDer = resul_zonas$puntaje[4]
+      )
+      
+      write.csv(reporte, file, row.names = FALSE)
+    }
+  )
+  
   
   # Progreso
   output$progreso <- renderText({
