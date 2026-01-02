@@ -65,8 +65,8 @@ ui <- fluidPage(
       conditionalPanel(
         condition = "output.stage == 1",
         #una instrucción que se imprime en la side bar
-        h3("Analiza los siguientes 16 elementos laborales listados y marca la 
-           casilla de los ocho elementos que consideras Realizar mejor.",
+        h3("Analiza los siguientes 16 elementos laborales listados y selecciona 
+           ocho elementos que consideras Realizar mejor.",
            style = "font-size:16px;"),
         #el nombre del output de esta etapa
         uiOutput("etapa1_ui"),
@@ -77,7 +77,7 @@ ui <- fluidPage(
       # Etapa 2: Seleccionar 1 de las 5 anteriores
       conditionalPanel(
         condition = "output.stage == 2",
-        h3("De los ocho elementos seleccionados, marca con un circulo aquel que
+        h3("De los ocho elementos seleccionados, selecciona aquel que
            te Agrade/guste más hacer", style = "font-size:16px;"),
         uiOutput("etapa2_ui"),  # Cambiado a uiOutput para evitar el error
         br(),
@@ -88,7 +88,7 @@ ui <- fluidPage(
       # Etapa 3: Mostrar las 5 no seleccionadas al inicio
       conditionalPanel(
         condition = "output.stage == 3",
-        h3("De los ocho elementos que no seleccionaste, marca aquel elemento que
+        h3("De los ocho elementos que no seleccionaste, selecciona aquel elemento que
            menos te agrade o menos te guste hacer", style = "font-size:16px;"),
         uiOutput("etapa3_ui"),
         br(),
@@ -431,19 +431,19 @@ server <- function(input, output, session) {
     
     if(stage() >= 2 && length(selections$etapa1_labels) > 0) {
       text <- paste0(text, 
-                     "Etapa 1 (8 seleccionadas):\n",
+                     "Tus habilidades:\n",
                      paste("•", selections$etapa1_labels, collapse = "\n"), "\n\n")
     }
     
     if(stage() >= 3 && nchar(selections$etapa2_label) > 0) {
       text <- paste0(text,
-                     "Etapa 2 (Habilidad principal):\n",
+                     "Tu habilidad principal:\n",
                      "• ", selections$etapa2_label, "\n\n")
     }
     
     if(stage() >= 4 && nchar(selections$etapa3_label) > 0) {
       text <- paste0(text,
-                     "Etapa 3 (De las no elegidas):\n",
+                     "Tu peor habilidad:\n",
                      "• ", selections$etapa3_label, "\n")
     }
     
@@ -451,7 +451,7 @@ server <- function(input, output, session) {
     if(stage() == 4 && !is.null(resultados_zonas())) {
       resul_zonas <- resultados_zonas()
       text <- paste0(text,
-                     "\n📊 RESULTADOS DE DOMINANCIA:\n",
+                     "\n RESULTADOS DE DOMINANCIA CEREBRAL:\n",
                      "• Superior izquierdo: ", resul_zonas$puntaje[resul_zonas$zona == "supIzq"], "\n",
                      "• Superior derecho: ", resul_zonas$puntaje[resul_zonas$zona == "supDer"], "\n",
                      "• Inferior izquierdo: ", resul_zonas$puntaje[resul_zonas$zona == "infIzq"], "\n",
