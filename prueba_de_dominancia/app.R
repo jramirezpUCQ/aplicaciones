@@ -9,8 +9,7 @@
 library(shiny)
 library(fmsb)
 library(shinyjs)
-library(rmarkdown)
-library(knitr)
+library(shinyscreenshot)
 
 ################################################################################
 #INTERFAS
@@ -103,7 +102,8 @@ ui <- fluidPage(
         br(),
         actionButton("back3", "Volver a Etapa 3"),
         actionButton("reset", "Comenzar de nuevo"),
-        downloadButton("descargar", "Descargar resultados")
+        downloadButton("descargar", "Descargar resultados"),
+        actionButton("descargar_pdf", "Descargar resultados (PDF)")
       )
     ),
     
@@ -411,8 +411,28 @@ server <- function(input, output, session) {
       
       # Escribir archivo
       write.csv(reporte, file, row.names = FALSE, fileEncoding = "UTF-8", na = "")
+      
     }
   )
+  
+  #descargar el pdf del resultado
+  observeEvent(input$descargar_pdf, {
+    req(stage() == 4)
+    
+    nombre_base <- ifelse(is.null(input$nombre) || input$nombre == "",
+                          "resultado",
+                          input$nombre)
+    
+    nombre_limpio <- gsub("[^[:alnum:]._-]", "_", nombre_base)
+    
+    
+    shinyscreenshot::screenshot(
+      selector="body", scale = 3,
+      filename = paste0(nombre_limpio, "_dominancia_cerebral.pdf")
+    )
+    
+    
+  })
   
   # Progreso
   output$progreso <- renderText({
