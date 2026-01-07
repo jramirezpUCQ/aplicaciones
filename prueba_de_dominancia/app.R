@@ -427,8 +427,13 @@ server <- function(input, output, session) {
     
     
     shinyscreenshot::screenshot(
-      selector="body", scale = 3,
+      selector="body", 
+      #id=c("nombre","edad","carrera","f_nacimiento","escuela","grado","correo",
+      #     "telefono","tutor","correo_tutor","telefono_tutor","summary","grafica_final")
+      ,
+      scale = 3,
       filename = paste0(nombre_limpio, "_dominancia_cerebral.pdf")
+      
     )
     
     
