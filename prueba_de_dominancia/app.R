@@ -103,7 +103,7 @@ ui <- fluidPage(
         actionButton("back3", "Volver a Etapa 3"),
         actionButton("reset", "Comenzar de nuevo"),
         downloadButton("descargar", "Descargar resultados"),
-        actionButton("descargar_pdf", "Descargar resultados (PDF)")
+        downloadButton("descargar_pdf", "Descargar PDF")
       )
     ),
     
@@ -375,6 +375,7 @@ server <- function(input, output, session) {
       
       # Limpiar caracteres no válidos
       nombre_limpio <- gsub("[^[:alnum:]._-]", "_", nombre_base)
+      randomnum<-sample(100)[1]
       paste0(nombre_limpio, "_dominancia_cerebral.csv")
     },
     
@@ -388,7 +389,7 @@ server <- function(input, output, session) {
       resul_zonas <- resultados_zonas()
       
       # Crear reporte
-      reporte <- data.frame(
+      reporte <- reactive({data.frame(
         Nombre_aspirante = ifelse(!is.null(input$nombre), input$nombre, ""),
         Edad = ifelse(!is.null(input$edad), input$edad, NA),
         Carrera_deseada = ifelse(!is.null(input$carrera), input$carrera, ""),
@@ -405,9 +406,19 @@ server <- function(input, output, session) {
         SupDer = resul_zonas$puntaje[resul_zonas$zona == "supDer"],
         InfIzq = resul_zonas$puntaje[resul_zonas$zona == "infIzq"],
         InfDer = resul_zonas$puntaje[resul_zonas$zona == "infDer"],
+        etapa1_seleccion1 = selections$etapa1_labels[1],
+        etapa1_seleccion2 = selections$etapa1_labels[2],
+        etapa1_seleccion3 = selections$etapa1_labels[3],
+        etapa1_seleccion4 = selections$etapa1_labels[4],
+        etapa1_seleccion5 = selections$etapa1_labels[5],
+        etapa1_seleccion6 = selections$etapa1_labels[6],
+        etapa1_seleccion7 = selections$etapa1_labels[7],
+        etapa1_seleccion8 = selections$etapa1_labels[8],
+        etapa2_seleccion = selections$etapa2_label,
+        etapa3_seleccion = selections$etapa3_label,
         Fecha_prueba = as.character(Sys.Date()),
         Hora_prueba = format(Sys.time(), "%H:%M:%S")
-      )
+      )})
       
       # Escribir archivo
       write.csv(reporte, file, row.names = FALSE, fileEncoding = "UTF-8", na = "")
@@ -416,28 +427,23 @@ server <- function(input, output, session) {
   )
   
   #descargar el pdf del resultado
-  observeEvent(input$descargar_pdf, {
-    req(stage() == 4)
-    
-    nombre_base <- ifelse(is.null(input$nombre) || input$nombre == "",
-                          "resultado",
-                          input$nombre)
-    
-    nombre_limpio <- gsub("[^[:alnum:]._-]", "_", nombre_base)
-    
-    
-    shinyscreenshot::screenshot(
-      selector="body", 
-      #id=c("nombre","edad","carrera","f_nacimiento","escuela","grado","correo",
-      #     "telefono","tutor","correo_tutor","telefono_tutor","summary","grafica_final")
-      ,
-      scale = 3,
-      filename = paste0(nombre_limpio, "_dominancia_cerebral.pdf")
+  output$descargar_pdf <- downloadHandler(
+    filename = function() {
+      paste0(nombre_limpio(),randomnum,"_prueba_de_dominancia.pdf")
+    },
+    content = function(file) {
       
-    )
-    
-    
-  })
+      rmarkdown::render(
+        input = "reporte.Rmd",
+        output_file = file,
+        params = list(
+          reporte = reporte()
+        ),
+        envir = new.env(parent = globalenv())
+      )
+    }
+  )
+  
   
   # Progreso
   output$progreso <- renderText({
