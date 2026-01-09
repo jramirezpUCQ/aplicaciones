@@ -1,0 +1,262 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\usepackage{transparent}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\includegraphics[height=2.3cm]{www/pie_paginas.png}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{www/Encabezado_primer_hoja.png}
+
+\subsection{Finalidad de la prueba}\label{finalidad-de-la-prueba}
+
+De una manera gráfica esta herramienta busca identificar el tipo de
+dominancia cerebral a la que perteneces o tienes principalmente y a las
+carreras en las que mejor te desempeñarías para el éxito en tu vida
+profesional.
+
+\pandocbounded{\includegraphics[keepaspectratio]{www/divisor.png}}
+
+\subsection{Datos del alumno}\label{datos-del-alumno}
+
+\textbf{Fecha y hora en la que se hizo la prueba} 2026-01-08 16:04:32
+
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Nombre completo:} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{Edad:} NA
+\end{minipage}
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Carrera a la que aspiras:} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{Fecha de nacimiento:} 
+\end{minipage}
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Escuela de procedencia:} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{Grado:} 
+\end{minipage}
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Correo electrónico:} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{Teléfono:} 
+\end{minipage}
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+
+\textbf{Nombre completo del (tutor):}
+
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{Correo electrónico (tutor):} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{Teléfono (tutor):} 
+\end{minipage}
+
+\pandocbounded{\includegraphics[keepaspectratio]{www/divisor.png}}
+
+\section{Habilidades seleccionadas}\label{habilidades-seleccionadas}
+
+\textbf{Tus habilidades}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{•} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{•} 
+\end{minipage}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{•} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{•} 
+\end{minipage}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{•} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{•} 
+\end{minipage}
+
+\begin{minipage}[t]{0.48\textwidth}
+\textbf{•} 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedleft
+\textbf{•} 
+\end{minipage}
+
+\textbf{Tu habilidad principal}
+
+\begin{itemize}
+\tightlist
+\item
+\end{itemize}
+
+\textbf{Tu peor habilidad}
+
+\begin{itemize}
+\tightlist
+\item
+\end{itemize}
+
+\section{Hemisferios}\label{hemisferios}
+
+\textbf{Puntaje para las distintas zonas}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2639}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2361}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2639}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2361}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+Superior izquierdo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Superior derecho
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Inferior izquierdo
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Inferior derecho
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0 & 0 & 0 \\
+\end{longtable}
+
+\textbf{Zona con mayor dominancia:} Superior izquierdo
+
+\pandocbounded{\includegraphics[keepaspectratio]{reporte_files/figure-latex/unnamed-chunk-4-1.pdf}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{www/divisor.png}}
+
+\section{Programa educativo que se adapta a tu estilo de
+pensamiento}\label{programa-educativo-que-se-adapta-a-tu-estilo-de-pensamiento}
+
+\pandocbounded{\includegraphics[keepaspectratio]{www/carreras.png}}
+
+\textcolor{green!70!black}{\rule{\linewidth}{2.5pt}}
+
+\begingroup
+\fontfamily{phv}\selectfont
+\small
+
+La Universidad Cuauhtémoc, Plantel Querétaro, A.C. con domicilio en
+Blvd. Bernardo Quintana Arrioja No.~229 A, Fraccionamiento Los Arcos,
+Santiago de Querétaro, Qro. México, utilizara sus datos personales y
+sensibles para la identificación, operacion, administración y análogos,
+que sean necesarios para la prestación de los servicios académicos y
+administrativos de la Universidad Cuauhtémoc Plantel Querétaro, A.C.
+Para mayor información usted puede acceder al aviso de privacidad en
+\href{https://www.ucq.edu.mx/uc}{https://www.ucq.edu.mx/uc} \endgroup
+
+\end{document}

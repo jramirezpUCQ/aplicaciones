@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.7)  8 JAN 2026 16:04
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.7)  8 JAN 2026 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**reporte.tex
-(./reporte.tex
+**C:/Users/UCQ/AppData/Local/Temp/Rtmp88unK8/file4eccca1015.tex
+(c:/Users/UCQ/AppData/Local/Temp/Rtmp88unK8/file4eccca1015.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
 (c:/Users/UCQ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -544,8 +544,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: bkm-dvipdfm.def 2023-12-10 v1.31 bookmark driver for dvipdfm (HO)
 \BKM@id=\count337
 ))
-No file reporte.aux.
-\openout1 = `reporte.aux'.
+No file file4eccca1015.aux.
+\openout1 = `file4eccca1015.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
 LaTeX Font Info:    ... okay on input line 87.
@@ -833,6 +833,38 @@ File: www/Encabezado_primer_hoja.png Graphic file (type bmp)
 <www/Encabezado_primer_hoja.png>
 File: www/divisor.png Graphic file (type bmp)
 <www/divisor.png>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 138.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 138.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 138.
+(c:/Users/UCQ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 138.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 138.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 138.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 138.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 138.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 138.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 138.
+(c:/Users/UCQ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 138.
+(c:/Users/UCQ/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
+[]\TU/lmr/bx/n/10 Correo electrónico (tutor): \TU/lmr/m/n/10 pp-
+ []
+
 File: www/divisor.png Graphic file (type bmp)
 <www/divisor.png>
 File: www/pie_paginas.png Graphic file (type bmp)
@@ -845,8 +877,8 @@ Package fancyhdr Warning: \footskip is too small (30.0pt):
 [1
 
 ]
-File: reporte_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
-<use reporte_files/figure-latex/unnamed-chunk-4-1.pdf>
+File: C:/Users/UCQ/AppData/Local/Temp/Rtmp88unK8/file4eccca1015_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use C:/Users/UCQ/AppData/Local/Temp/Rtmp88unK8/file4eccca1015_files/figure-latex/unnamed-chunk-4-1.pdf>
 File: www/divisor.png Graphic file (type bmp)
 <www/divisor.png>
 File: www/carreras.png Graphic file (type bmp)
@@ -859,11 +891,11 @@ Package fancyhdr Warning: \footskip is too small (30.0pt):
 (fancyhdr)                \setlength{\footskip}{69.04146pt}.
 
 [2]
-LaTeX Font Info:    Trying to load font information for TU+phv on input line 250.
-LaTeX Font Info:    No file TUphv.fd. on input line 250.
+LaTeX Font Info:    Trying to load font information for TU+phv on input line 252.
+LaTeX Font Info:    No file TUphv.fd. on input line 252.
 
 LaTeX Font Warning: Font shape `TU/phv/m/n' undefined
-(Font)              using `TU/lmr/m/n' instead on input line 250.
+(Font)              using `TU/lmr/m/n' instead on input line 252.
 
 File: www/pie_paginas.png Graphic file (type bmp)
 <www/pie_paginas.png>
@@ -872,7 +904,7 @@ Package fancyhdr Warning: \footskip is too small (30.0pt):
 (fancyhdr)                Make it at least 69.04146pt, for example:
 (fancyhdr)                \setlength{\footskip}{69.04146pt}.
 
-[3] (./reporte.aux)
+[3] (./file4eccca1015.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
@@ -885,19 +917,19 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 17302 strings out of 470195
- 317627 string characters out of 5476641
- 872331 words of memory out of 5000000
- 45711 multiletter control sequences out of 15000+600000
- 628397 words of font info for 52 fonts, out of 8000000 for 9000
+ 17370 strings out of 470195
+ 320122 string characters out of 5476641
+ 874352 words of memory out of 5000000
+ 45749 multiletter control sequences out of 15000+600000
+ 631234 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,12n,114p,406b,480s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,114p,456b,480s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 ! '\\wsl.localhost\Ubuntu\home\eramirez\github_files\aplicaciones\prueba_de_dominancia'
 ! CMD.EXE se inició con esta ruta como el directorio actual. No se permiten
 ! rutas UNC. Regresando de manera predeterminada al directorio Windows.
 
-! xdvipdfmx:fatal: Unable to open "reporte.pdf".
+! xdvipdfmx:fatal: Unable to open "file4eccca1015.pdf".
 
 ! No output PDF file written.
 ! xelatex.exe: fwrite: Broken pipe

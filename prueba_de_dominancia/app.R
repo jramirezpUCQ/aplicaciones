@@ -429,21 +429,55 @@ server <- function(input, output, session) {
   #descargar el pdf del resultado
   output$descargar_pdf <- downloadHandler(
     filename = function() {
-      paste0(nombre_limpio(),randomnum,"_prueba_de_dominancia.pdf")
+      paste0(
+        gsub("[^[:alnum:]._-]", "_", input$nombre),
+        "_",
+        format(Sys.time(), "%Y%m%d_%H%M%S"),
+        "_prueba_dominancia.pdf"
+      )
     },
     content = function(file) {
+      req(stage() == 4)
+      
+      reporte <- data.frame(
+        Nombre_aspirante = input$nombre,
+        Edad = input$edad,
+        Carrera_deseada = input$carrera,
+        F_nacimiento = as.character(input$f_nacimiento),
+        Escuela = input$escuela,
+        Grado = input$grado,
+        Correo = input$correo,
+        Telefono = input$telefono,
+        Nombre_tutor = input$tutor,
+        Correo_tutor = input$correo_tutor,
+        Telefono_tutor = input$telefono_tutor,
+        SupIzq = resultados_zonas()$puntaje[resultados_zonas()$zona == "supIzq"],
+        SupDer = resultados_zonas()$puntaje[resultados_zonas()$zona == "supDer"],
+        InfIzq = resultados_zonas()$puntaje[resultados_zonas()$zona == "infIzq"],
+        InfDer = resultados_zonas()$puntaje[resultados_zonas()$zona == "infDer"],
+        etapa1_seleccion1 = selections$etapa1_labels[1],
+        etapa1_seleccion2 = selections$etapa1_labels[2],
+        etapa1_seleccion3 = selections$etapa1_labels[3],
+        etapa1_seleccion4 = selections$etapa1_labels[4],
+        etapa1_seleccion5 = selections$etapa1_labels[5],
+        etapa1_seleccion6 = selections$etapa1_labels[6],
+        etapa1_seleccion7 = selections$etapa1_labels[7],
+        etapa1_seleccion8 = selections$etapa1_labels[8],
+        etapa2_seleccion = selections$etapa2_label,
+        etapa3_seleccion = selections$etapa3_label,
+        Fecha_prueba = as.character(Sys.Date()),
+        Hora_prueba = format(Sys.time(), "%H:%M:%S"),
+        stringsAsFactors = FALSE
+      )
       
       rmarkdown::render(
         input = "reporte.Rmd",
         output_file = file,
-        params = list(
-          reporte = reporte()
-        ),
+        params = as.list(reporte[1, ]),
         envir = new.env(parent = globalenv())
       )
     }
   )
-  
   
   # Progreso
   output$progreso <- renderText({

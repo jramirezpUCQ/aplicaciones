@@ -1,35 +1,38 @@
 ---
 title: ""
-output: pdf_document
+output: 
+  pdf_document:
+    latex_engine: xelatex
 params:
-  Nombre_aspirante: "JUAN"
-  Edad: 18
-  Carrera_deseada: "MEDICINA"
-  F_nacimiento: "1998-01-05"
-  Escuela: "CETIS 105"
-  Grado: 6
-  Correo: "PPTONS@HOTMAIL.COM"
-  Telefono: "4421919075"
-  Nombre_tutor: "JOSE RAMIREZ"
-  Correo_tutor: "JOSE@HOTMAIL.COM"
-  Telefono_tutor: "4421919075"
-  SupIzq: 4
-  SupDer: 5
-  InfIzq: 3
-  InfDer: 3
-  etapa1_seleccion1: Análisis
-  etapa1_seleccion2: Administración
-  etapa1_seleccion3: Conceptualización
-  etapa1_seleccion4: Expresión de ideas
-  etapa1_seleccion5: Integración
-  etapa1_seleccion6: Redacción
-  etapa1_seleccion7: Aspectos técnicos
-  etapa1_seleccion8: Implantación
-  etapa2_seleccion: Análisis
-  etapa3_seleccion: Planeación
+  Nombre_aspirante: ""
+  Edad: NA
+  Carrera_deseada: ""
+  F_nacimiento: ""
+  Escuela: ""
+  Grado: ""
+  Correo: ""
+  Telefono: ""
+  Nombre_tutor: ""
+  Correo_tutor: ""
+  Telefono_tutor: ""
+  SupIzq: 0
+  SupDer: 0
+  InfIzq: 0
+  InfDer: 0
+  etapa1_seleccion1: ""
+  etapa1_seleccion2: ""
+  etapa1_seleccion3: ""
+  etapa1_seleccion4: ""
+  etapa1_seleccion5: ""
+  etapa1_seleccion6: ""
+  etapa1_seleccion7: ""
+  etapa1_seleccion8: ""
+  etapa2_seleccion: ""
+  etapa3_seleccion: ""
   Fecha_prueba: ""
   Hora_prueba: ""
 header-includes:
+  - \usepackage{xcolor}
   - \usepackage{graphicx}
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
@@ -39,6 +42,7 @@ header-includes:
   - \renewcommand{\footrulewidth}{0pt}
   - \fancyfoot[C]{\includegraphics[height=2.3cm]{www/pie_paginas.png}}
 ---
+
 
 ```{r include=FALSE}
 #librerias
@@ -69,7 +73,7 @@ hora_prueba <- format(Sys.time(), "%H:%M:%S")
 
 ```
 
-![](www/Encabezado_primer_hoja.png){width=5000,height=1500}
+![](www/Encabezado_primer_hoja.png){width=100%}
 
 ## Finalidad de la prueba
 De una manera gráfica esta herramienta busca identificar el tipo de dominancia cerebral a la que perteneces o tienes principalmente y a las carreras en las que mejor te desempeñarías para el éxito en tu vida profesional.
@@ -192,6 +196,7 @@ cuadrantes<-data.frame(
   `Inferior derecho` = params$InfDer,
    check.names = FALSE
 )
+cuadrantes[is.na(cuadrantes)] <- 0
 
 hemisferio_dominante<-names(which.max(cuadrantes))
 
@@ -239,7 +244,7 @@ radarchartcirc(data2,
 \begingroup
 \fontfamily{phv}\selectfont
 \small
-La Universidad Cuauhtémoc, Plantel Querétaro, A.C. con domicilio en Blvd. Bernardo Quintana Arrioja No. 229 A, Fraccionamiento Los Arcos, Santiago de Querétaro, Qro. México, utilizara sus datos personales y sensibles para la identificación, operacion, administración y análogos, que sean necesarios para la prestación de los servicios académicos y administrativos de la Universidad Cuauhtémoc Plantel Querétaro, A.C. Para mayor información usted puede acceder al aviso de privacidad en \href{www.ucq.edu.mx/uc}{https://www.ucq.edu.mx/uc}
+La Universidad Cuauhtémoc, Plantel Querétaro, A.C. con domicilio en Blvd. Bernardo Quintana Arrioja No. 229 A, Fraccionamiento Los Arcos, Santiago de Querétaro, Qro. México, utilizara sus datos personales y sensibles para la identificación, operacion, administración y análogos, que sean necesarios para la prestación de los servicios académicos y administrativos de la Universidad Cuauhtémoc Plantel Querétaro, A.C. Para mayor información usted puede acceder al aviso de privacidad en \href{https://www.ucq.edu.mx/uc}{https://www.ucq.edu.mx/uc}
 \endgroup
 
 
